@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <title>Anagram checker</title>
+    </head>
+    <body>
+        <script type="application/javascript" src="anagram.js"></script>
+
+        <label>Palavra referência:</label>
+        <input id="referenceWord" type="text">
+
+        <br><br><br><br>
+
+        <label>Tentativa de anagrama:</label>
+        <input id="word" type="text">
+
+        <br><br><br><br>
+
+        <label>Anagrama? </label>
+        <input id="anagramStatus" type="text" disabled value="false">
+
+        <script type="application/javascript">
+            var checkForAnagram = function(){
+                var word = document.getElementById("word").value;
+                var referenceWord = document.getElementById("referenceWord").value;
+                console.log("Checking for anagram: Anagrams.isAnagram('" + referenceWord + "', '" + word + "');");
+
+                document.getElementById("anagramStatus").value = Anagrams.isAnagram(referenceWord, word);
+            };
+            window.addEventListener('load', function(){
+                document.getElementById("word").addEventListener("keyup", checkForAnagram);
+                document.getElementById("referenceWord").addEventListener("keyup", checkForAnagram);
+                document.getElementById("anagramStatus").addEventListener("keyup", checkForAnagram);
+            });
+        </script>
+    </body>
+</html>
