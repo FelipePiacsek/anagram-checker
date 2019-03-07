@@ -3,30 +3,35 @@
     <head>
         <meta charset="UTF-8">
         <title>Anagram checker</title>
+        <link rel="stylesheet" href="style.css" />
     </head>
     <body>
+        <div class="flex-container">
+            <div class="flex-item">
+                <label>Palavra referência:</label>
+                <input id="referenceWord" type="text" style="width: 250px;">
+            </div>
 
-        <label>Palavra referência:</label>
-        <input id="referenceWord" type="text" style="width: 250px;">
+            <div class="flex-item">
+                <label>Tentativa de anagrama:</label>
+                <input id="word" type="text" style="width: 250px;">
+            </div>
 
-        <br><br><br><br>
+            <div class="flex-item">
+                <label>Anagrama? </label>
+                <input id="anagramStatus" type="text" disabled value="false">
+            </div>
 
-        <label>Tentativa de anagrama:</label>
-        <input id="word" type="text" style="width: 250px;">
-
-        <br><br><br><br>
-
-        <label>Anagrama? </label>
-        <input id="anagramStatus" type="text" disabled value="false">
-
-        <br><br><br><br>
-        <div style="display: inline-block; text-align: center">
-            <label>Diferença de vogais</label>
-            <div id="vowelsDiff" style="white-space: pre-wrap;"></div>
         </div>
-        <div style="display: inline-block;">
-            <label>Diferença de consoantes</label>
-            <div id="consonantsDiff" style="white-space: pre-wrap;"></div>
+        <div class="flex-container">
+            <div class="flex-item">
+                <label>Diferença de vogais</label>
+                <div id="vowelsDiff" style="white-space: pre-wrap;"></div>
+            </div>
+            <div class="flex-item">
+                <label>Diferença de consoantes</label>
+                <div id="consonantsDiff" style="white-space: pre-wrap;"></div>
+            </div>
         </div>
 
 
