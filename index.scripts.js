@@ -4,7 +4,19 @@ var checkForAnagram = function(referenceWord, word){
 
 var displayLettersDiff = function(referenceWord, word){
     var diffMap = Anagrams.lettersDiffMap(referenceWord, word);
-    document.getElementById("lettersDiff").textContent = JSON.stringify(diffMap, null, 4);
+    var diffLetters = Object.keys(diffMap);
+    var vowelDiffMap = {};
+    var consonantDiffMap = {};
+    for(var i = 0; i < diffLetters.length; i++){
+        var letter = diffLetters[i];
+        if (Anagrams.isVowel(letter)) {
+            vowelDiffMap[letter] = diffMap[letter];
+        }else {
+            consonantDiffMap[letter] = diffMap[letter];
+        }
+    }
+    document.getElementById("vowelsDiff").textContent = JSON.stringify(vowelDiffMap, null, 4);
+    document.getElementById("consonantsDiff").textContent = JSON.stringify(consonantDiffMap, null, 4);
 };
 
 var letterTypedDigest = function(){

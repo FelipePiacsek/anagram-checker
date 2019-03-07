@@ -1,4 +1,7 @@
 var Anagrams = function(){
+    // Constants
+    var VOWELS = ["a", "e", "i", "o", "u"];
+
     // Private functions
     var removeBlanks = function(string){
         return string.replace(new RegExp(" ", "g"), "");
@@ -54,8 +57,13 @@ var Anagrams = function(){
         return diffMap;
     };
 
+    var isVowel = function(letter){
+        return VOWELS.indexOf(letter.toLowerCase()) > -1;
+    };
+
     return {
         isAnagram: isAnagram,
-        lettersDiffMap: lettersDiffMap
+        lettersDiffMap: lettersDiffMap,
+        isVowel: isVowel
     };
 }();
