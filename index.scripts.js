@@ -20,10 +20,9 @@ var displayLettersDiff = function(referenceWord, word){
             }
         }
     }
-    var vowelsString = vowels.sort().join(" ");
-    var consonantsString = consonants.sort().join(" ");
-    document.getElementById("vowelsDiff").textContent = vowelsString;
-    document.getElementById("consonantsDiff").textContent = consonantsString;
+
+    document.getElementById("vowelsDiff").textContent = vowels.sort().join(" ");
+    document.getElementById("consonantsDiff").textContent = consonants.sort().join(" ");
 };
 
 var letterTypedDigest = function(){
