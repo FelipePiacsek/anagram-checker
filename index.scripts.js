@@ -5,18 +5,25 @@ var checkForAnagram = function(referenceWord, word){
 var displayLettersDiff = function(referenceWord, word){
     var diffMap = Anagrams.lettersDiffMap(referenceWord, word);
     var diffLetters = Object.keys(diffMap);
-    var vowelDiffMap = {};
-    var consonantDiffMap = {};
-    for(var i = 0; i < diffLetters.length; i++){
+    var vowels = [];
+    var consonants = [];
+    var i, j;
+    for(i = 0; i < diffLetters.length; i++){
         var letter = diffLetters[i];
         if (Anagrams.isVowel(letter)) {
-            vowelDiffMap[letter] = diffMap[letter];
+            for(j = 1; j <= diffMap[letter]; j++){
+                vowels.push(letter);
+            }
         }else {
-            consonantDiffMap[letter] = diffMap[letter];
+            for(j = 1; j <= diffMap[letter]; j++){
+                consonants.push(letter);
+            }
         }
     }
-    document.getElementById("vowelsDiff").textContent = JSON.stringify(vowelDiffMap, null, 4);
-    document.getElementById("consonantsDiff").textContent = JSON.stringify(consonantDiffMap, null, 4);
+    var vowelsString = vowels.sort().join(" ");
+    var consonantsString = consonants.sort().join(" ");
+    document.getElementById("vowelsDiff").textContent = vowelsString;
+    document.getElementById("consonantsDiff").textContent = consonantsString;
 };
 
 var letterTypedDigest = function(){
